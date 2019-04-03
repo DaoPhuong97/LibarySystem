@@ -1,15 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-//API add picture to server and return imagePath
-router.post('/add/picture', multer({
-  storage: storage
-}).single("image"), async (req, res) => {
-  const url = req.protocol + '://' + req.get("host");
-  let imagePath = url + "/images/" + req.file.filename;
-  res.status(200).json({
-    avatarUrl: imagePath
-  })
+//router login
+router.post('/authenticate/',(req,res)=>{
+  if (req.body.username === "phuongdao" && req.body.password === "sam"){
+    return res.status(200).send("Login success");
+  }
+  return res.status(500).send("Fail");
 });
 
 module.exports = router;

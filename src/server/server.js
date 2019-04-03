@@ -6,14 +6,6 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-// connection to db
-mongoose.connect(connectionString, {
-    dbName: 'CV-db'
-  })
-  .then(db => console.log('db connected'))
-  .catch(err => console.log(err));
-
-
 // settings
 app.set('port', process.env.PORT || 3000);
 
