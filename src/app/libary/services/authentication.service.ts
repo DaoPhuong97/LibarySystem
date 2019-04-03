@@ -22,17 +22,7 @@ export class AuthenticationService {
     }
 
     login(username: string, password: string) {
-        return this.http.post<any>('http://localhost:3000/', { username, password })
-            .pipe(map(user => {
-                console.log("get user!");
-                if (user && user.token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                    this.currentUserSubject.next(user);
-                }
-
-                return user;
-            }));
+        return this.http.post('http://localhost:3000/authenticate', { username, password });
     }
 
     logout() {
