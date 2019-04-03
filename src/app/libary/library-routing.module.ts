@@ -4,15 +4,15 @@ import { LibraryLoginComponent } from '../libary/components/login/login.componen
 
 const libraryRoutes: Routes = [
     {
-        path: 'libraryApp',
+        path: '',
         children: [
            {
-                path: 'login',
+                path: '',
                 component: LibraryLoginComponent,
             }
         ]
     }
-   
+
 ];
 
 @NgModule({
